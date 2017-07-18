@@ -11,4 +11,10 @@ class Review < ApplicationRecord
     .order("city_count DESC")
     .limit("#{number}")
     )}
+
+  scope :random_city, -> (number){(
+    select("reviews.city")
+    .order("random()")
+    .limit("#{number}")
+    )}
 end

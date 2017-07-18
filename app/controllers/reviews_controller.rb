@@ -11,6 +11,9 @@ class ReviewsController < ApplicationController
     city_most_reviewed = params[:most_reviewed].to_i
     @reviews = Review.most_reviews(city_most_reviewed)
 
+    random_city = params[:random_city].to_i
+    @reviews = Review.random_city(random_city)
+
     render json: @reviews
   end
 
